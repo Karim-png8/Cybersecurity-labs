@@ -25,18 +25,21 @@ This lab demonstrates foundational Linux commands executed via the terminal, foc
 | **`clear`** | `clear` | Clears the terminal screen for a clean workspace. | *Clears Terminal* |
 ---
 
-## 🛡️ 3. Linux Package Management & Network Security Lab (Suricata IDS/IPS)
+# Linux APT Commands Guide
 
-In this security lab, I focused on advanced Linux package administration, system auditing, and deploying network security monitoring solutions using **Suricata** (Intrusion Detection and Prevention System).
+This repository contains a reference guide for managing network security tools using the **APT (Advanced Package Tool)** package manager in Linux.
 
-### 🛠️ Detailed Tasks & System Auditing
+---
 
-#### 1. Advanced Package Queries via `apt`
-* Used `apt list --installed` and `apt search` to audit security tools within the system.
-* Executed detailed queries using `apt show` to verify package versions, maintainer logs, and source repositories before execution.
+## 📋 Table of Contents
+1. [Suricata Commands](#1-suricata-commands)
+2. [Tcpdump Commands](#2-tcpdump-commands)
+3. [Package Verification](#3-package-verification)
+4. [External References](#4-external-references)
 
-#### 2. Installing Suricata & Deploying Dependencies
-* Installed the **Suricata** engine via elevated privileges to set up real-time packet capturing and threat detection:
-  ```bash
-  sudo apt-get update && sudo apt-get install suricata -y ### 📂 Full Lab Report & Walkthrough
+---
+## 1. Suricata Commands
+Suricata is a free and open-source, mature, fast, and robust network threat detection engine.
+
+### 📁 Full Lab Report & Walkthrough
 * 📄 **[Click here to view the complete step-by-step Lab PDF](https://drive.google.com/file/d/1F6mIYlCDk2ctzzdinGAfIPDyiOfYOhxP/view?usp=drivesdk)**
