@@ -49,7 +49,8 @@ This repository documents my hands-on experience in navigating the Linux CLI, au
 | :--- | :--- | :--- | :--- |
 | **1. User Directory Auditing**<br>Inspect newly added users and map them to their correct corporate departments. | `cd /home/analyst/reports/users`<br>`ls`<br>`cat Q1_added_users.txt` | • Successfully displayed a structured table of Q1 added users.<br>• Identified critical fields: `employee_id`, `username`, and `department`. | • Linux file system navigation.<br>• Full-text file extraction using `cat`. |
 | **2. Server Log Analysis**<br>Inspect log files to identify active system events, warnings, and error messages. | `cd /home/analyst/logs`<br>`ls`<br>`head server_logs.txt` | • Extracted the top lines of `server_logs.txt`.<br>• Discovered regular `info` messages alongside `error` alerts.<br>• Identified `warning` messages regarding disk storage. | • Log review & Incident analysis.<br>• Sifting through large log files efficiently using `head`. |
-| 📸 **Lab Execution Screenshot** | *Captured from terminal* | ![Linux Log Analysis](./Linux%20Log%20Analysis%20&%20User%20Auditing%20Lab%20Docu.png) | • Evidence-based reporting & verification. |
+| 📸 **Lab Execution Screenshot** | *Captured from terminal* | ![Linux Log Analysis](./Linux%20Log%20Analysis%20&%20User%20Auditing%20Lab%20Docu.png) <img width="942" height="422" alt="linux-log-analysis-user-auditing" src="https://github.com/user-attachments/assets/3c345873-10b9-490d-879c-5ebc1feb76a6" />
+| • Evidence-based reporting & verification. |
 
 ---
 
