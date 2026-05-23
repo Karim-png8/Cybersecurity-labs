@@ -38,8 +38,8 @@ This repository contains a reference guide for managing network security tools u
 4. [External References](#4-external-references)
 
 ---
-## 1. Suricata Commands
-Suricata is a free and open-source, mature, fast, and robust network threat detection engine.
+### 📁 Full Lab Report & Walkthrough
+* 📄 **[Click here to view the complete step-by-step Lab PDF](https://drive.google.com/file/d/1F6mIYlCDk2ctzzdinGAfIPDyiOfYOhxP/view?usp=drivesdk)**
 # 📋 Linux Log Analysis & User Auditing Lab Documentation
 
 This repository documents my hands-on experience in navigating the Linux CLI, auditing user permissions, and analyzing server logs for potential security alerts.
@@ -60,5 +60,3 @@ This repository documents my hands-on experience in navigating the Linux CLI, au
 * **`cat`** - Concatenate (Displaying entire text file content).
 * **`head`** - Top lines extractor (Viewing the first 10 rows of a file to save analytical time).
 *
-### 📁 Full Lab Report & Walkthrough
-* 📄 **[Click here to view the complete step-by-step Lab PDF](https://drive.google.com/file/d/1F6mIYlCDk2ctzzdinGAfIPDyiOfYOhxP/view?usp=drivesdk)**
