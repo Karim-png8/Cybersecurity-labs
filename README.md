@@ -36,5 +36,5 @@ This repository contains a reference guide for managing network security tools u
 2. [Tcpdump Commands](#2-tcpdump-commands)
 3. [Package Verification](#3-package-verification)
 4. [External References](#4-external-references)
-📁 Full Lab Report & Walkthrough
-📄 **Click here to view the complete step-by-step Lab PDF
+### 📁 Full Lab Report & Walkthrough
+* 📄 **[Click here to view the complete step-by-step Lab PDF](https://drive.google.com/file/d/1F6mIYlCDk2ctzzdinGAfIPDyiOfYOhxP/view?usp=drivesdk)*
