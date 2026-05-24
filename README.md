@@ -1,3 +1,4 @@
+<img width="1920" height="889" alt="Linux File and Directory Management" src="https://github.com/user-attachments/assets/3ec28589-0dcd-4ef4-800f-5e68e460d0ef" />
 # 🛡️ Cybersecurity Labs
 
 Welcome to my labs repository! Here, I document my hands-on experiments, network analysis, and security room walkthroughs that I perform myself.
