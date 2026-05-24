@@ -59,4 +59,49 @@ This repository documents my hands-on experience in navigating the Linux CLI, au
 * `ls` - List directory contents (Discovering files and folders).
 * `cat` - Concatenate (Displaying entire text file content).
 * `head` - Top lines extractor (Viewing the first 10 rows of a file to save analytical time).
-*
+
+# Linux File Management and Log Analysis Lab
+
+## 🎯 Objective
+The objective of this lab is to practice navigating the Linux file system, inspecting user reports, and analyzing system log files using core CLI tools (`cd`, `ls`, `grep`, and `|`).
+
+---
+
+## 💻 Lab Steps & Execution Reference
+
+| Step | Objective | Command Executed | Key Outputs / Insights |
+| :--- | :--- | :--- | :--- |
+| **1** | Navigate to logs directory and analyze server logs | `cd logs`<br>`grep error server_logs.txt` | Identified multiple critical errors including:<br>• `The password is incorrect`<br>• `The username is incorrect`<br>• `Unauthorized access` |
+| **2** | Change directory to user reports | `cd /home/analyst/reports/users` | Successfully moved to the targeted directory for quarter reports. |
+| **3** | Filter files for the first quarter (Q1) | `ls \| grep Q1` | Isolated Q1 files:<br>• `Q1_access.txt`<br>• `Q1_added_users.txt`<br>• `Q1_deleted_users.txt` |
+| **4** | Filter all access logs across all quarters | `ls \| grep access` | Successfully isolated access reports for all quarters (`Q1_access.txt` through `Q4_access.txt`). |
+| **5** | List all files in the current directory | `ls` | Displayed the complete structure of all quarterly text files (`added_users`, `deleted_users`, `access`). |
+| **6** | Audit a specific deleted user | `grep jhill Q2_deleted_users.txt` | Found user **jhill** (ID: `1025`) under the `Sales` department. |
+| **7** | Filter new additions by department | `grep "Human Resources" Q4_added_users.txt` | Extracted HR personnel added in Q4:<br>• `1151 sshah Human Resources`<br>• `1145 msosa Human Resources` |
+
+---
+
+## 🛠️ Extracted Log Data Summaries
+
+### 🔍 Server Log Security Events (`server_logs.txt`)
+| Timestamp | Event Type | Description / Message |
+| :--- | :--- | :--- |
+| `2022-09-28 13:56:22` | `error` | The password is incorrect |
+| `2022-09-28 15:56:22` | `error` | The username is incorrect |
+| `2022-09-28 16:56:22` | `error` | The password is incorrect |
+| `2022-09-29 13:56:22` | `error` | An unexpected error occurred |
+| `2022-09-29 15:56:22` | `error` | Unauthorized access |
+| `2022-09-29 16:56:22` | `error` | Unauthorized access |
+
+### 👥 Targeted User Queries
+| Target Query | Source File | Extracted Record Details |
+| :--- | :--- | :--- |
+| `jhill` | `Q2_deleted_users.txt` | `1025   jhill   Sales` |
+| `"Human Resources"` | `Q4_added_users.txt` | `1151   sshah   Human Resources`<br>`1145   msosa   Human Resources` |
+
+---
+
+## 🚀 Skills Demonstrated
+* **Log Analysis & Threat Hunting:** Filtering system events to detect unauthorized access and authentication failures.
+* **Data Filtering & Pipeline Usage:** Employing pipes (`|`) and `grep` regex targeting to parse unstructured text files rapidly.
+* **System Administration:** Efficient navigation and directory mapping via the Linux CLI.
