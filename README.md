@@ -105,3 +105,42 @@ The objective of this lab is to practice navigating the Linux file system, inspe
 * **Log Analysis & Threat Hunting:** Filtering system events to detect unauthorized access and authentication failures.
 * **Data Filtering & Pipeline Usage:** Employing pipes (`|`) and `grep` regex targeting to parse unstructured text files rapidly.
 * **System Administration:** Efficient navigation and directory mapping via the Linux CLI.
+
+ # Linux File and Directory Management Lab
+
+## Overview
+This practical lab demonstrates essential Linux command-line operations for managing files and directories. The tasks include creating, moving, listing, and deleting files and directories within a Linux environment, simulated as an IT Security Analyst.
+
+## Objectives
+* Create and remove directories to maintain an organized file system.
+* Navigate between absolute and relative directory paths.
+* Move and manage report files across folders.
+* Create and delete temporary documentation files securely.
+
+## Commands Used
+* `mkdir`: Create a new directory.
+* `rmdir`: Remove an empty directory.
+* `ls`: List directory contents.
+* `cd`: Change the current working directory.
+* `mv`: Move or rename files and directories.
+* `rm`: Remove files.
+* `touch`: Create a new empty file.
+
+---
+
+## Lab Walkthrough & Execution
+
+| Step | Description | Commands Executed |
+| :---: | :--- | :--- |
+| **1** | **Directory Creation & Cleanup:**<br>Initialized a new directory named `logs` for structured log management, listed the directory layout, and removed an unneeded temporary empty directory named `temp`. | `mkdir logs`<br>`ls`<br>`rmdir temp`<br>`ls` |
+| **2** | **Navigation & File Relocation:**<br>Navigated to the notes directory using the absolute path `/home/analyst/notes`. Moved the quarterly patch report `Q3patches.txt` into the designated `reports` folder. | `cd /home/analyst/notes`<br>`mv Q3patches.txt /home/analyst/reports/`<br>`ls`<br>`ls /home/analyst/reports` |
+| **3** | **File Cleanup & Task Initialization:**<br>Permanently deleted the stale temporary note file `tempnotes.txt`, and initialized a fresh tracking file named `tasks.txt` to log upcoming duties. | `rm tempnotes.txt`<br>`ls`<br>`touch tasks.txt`<br>`ls` |
+
+---
+
+## Lab Proof & Verification
+
+### Terminal Evidence
+Below is the terminal capture verifying that all file management workflows, directory structures, and system cleanup commands were completed successfully without errors:
+
+![Linux Lab Screenshot](lab-terminal.png)
