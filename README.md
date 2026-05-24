@@ -1,5 +1,6 @@
 
 
+
 # 🛡️ Cybersecurity Labs
 
 Welcome to my labs repository! Here, I document my hands-on experiments, network analysis, and security room walkthroughs that I perform myself.
@@ -145,4 +146,4 @@ This practical lab demonstrates essential Linux command-line operations for mana
 ### Terminal Evidence
 Below is the terminal capture verifying that all file management workflows, directory structures, and system cleanup commands were completed successfully without errors:
 
-![Linux Lab Screenshot](lab-terminal.png)
+![Linux Lab Screenshot](lab-terminal.png)<img width="1920" height="889" alt="Linux File and Directory Management" src="https://github.com/user-attachments/assets/f7c0ea95-5e18-4692-aced-f3bba865526c" />
