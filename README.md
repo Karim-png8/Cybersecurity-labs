@@ -190,3 +190,48 @@ Based on the lab session captured in `0685821a-d46f-464b-9322-a6ae5b40343e`:
 * **Access Control:** Implementing the principle of least privilege by stripping unnecessary permissions.
 * **Security Auditing:** Identifying over-permissive files and remediating them instantly.
 *<img width="1920" height="1483" alt="Linux File Permissions   Access Control Lab" src="https://github.com/user-attachments/assets/ccbe0f85-eb05-4fcb-93a4-89904c1044ab" />
+
+# Linux User, Group, and Ownership Management Lab
+
+## Overview
+This lab focuses on user account administration, group management, and modifying file ownership within a Linux system. Managing these elements is crucial for enforcing security policies, managing privileges, and ensuring proper access control across shared environments.
+
+## Lab Objectives
+* Create and delete user accounts securely using administrative privileges (`sudo`).
+* Modify user group affiliations (both primary and secondary groups).
+* Change file ownership to restrict or grant specific user access.
+* Clean up residual groups after user deletion.
+
+---
+
+## Tasks & Commands Executed
+
+Based on the lab session captured in `ecd16ec9-37a3-4339-a721-67a0930e422e`:
+
+### 1. Creating a New User
+* **Command:** `sudo useradd researcher9`
+* **Purpose:** Created a new standard user account named `researcher9`.
+
+### 2. Managing Group Affiliations
+* **Primary Group:** `sudo usermod -g research_team researcher9`
+  * *Purpose:* Changed the primary group of `researcher9` to `research_team`.
+* **Secondary Group:** `sudo usermod -aG sales_team researcher9`
+  * *Purpose:* Appended (`-aG`) the user to a secondary group named `sales_team` without removing them from their primary group.
+
+### 3. Changing File Ownership
+* **Command:** `sudo chown researcher9 /home/researcher2/projects/project_r.txt`
+* **Purpose:** Transferred the ownership (`chown`) of `project_r.txt` to `researcher9`, granting them owner-level privileges over that specific file.
+
+### 4. User and Group Deletion (Cleanup)
+* **Command:** `sudo userdel researcher9`
+  * *System Response:* The system notified that the group `researcher9` was not automatically removed because it wasn't the user's primary group at the time of deletion.
+* **Command:** `sudo groupdel researcher9`
+  * *Purpose:* Manually deleted the residual `researcher9` group to maintain a clean system configuration and avoid orphaned groups.
+
+---
+
+## Skills Learned
+* **User Lifecycle Management:** Creating, modifying, and safely deleting user accounts.
+* **Access Control & Ownership:** Applying the concept of file ownership (`chown`) to control asset access.
+* **System Hygiene:** Handling warnings during user deletion and manually removing leftover groups to prevent configuration drift.
+*<img width="1920" height="889" alt="Linux User, Group, and Ownership Management Lab" src="https://github.com/user-attachments/assets/d7d6e507-cd0c-4654-92c6-09b9a7b38673" />
