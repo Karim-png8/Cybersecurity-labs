@@ -147,3 +147,46 @@ This practical lab demonstrates essential Linux command-line operations for mana
 Below is the terminal capture verifying that all file management workflows, directory structures, and system cleanup commands were completed successfully without errors:
 
 ![Linux Lab Screenshot](lab-terminal.png)<img width="1920" height="889" alt="Linux File and Directory Management" src="https://github.com/user-attachments/assets/f7c0ea95-5e18-4692-aced-f3bba865526c" />
+
+# Linux File Permissions & Access Control Lab
+
+## Overview
+This lab demonstrates how to manage and audit file and directory permissions in a Linux environment using the `chmod` command. The objective was to secure sensitive project files by restricting unauthorized read, write, and execute access for different user categories (Owner, Group, and Others).
+
+## Lab Objectives
+* Analyze existing file permissions using `ls -l` and `ls -la`.
+* Modify permissions for specific users, groups, and others using symbolic notation.
+* Secure hidden configuration files and directories.
+
+---
+
+## Tasks & Commands Executed
+
+Based on the lab session captured in `0685821a-d46f-464b-9322-a6ae5b40343e`:
+
+### 1. Auditing Directory Contents
+* Used `ls -l` to list standard files and `ls -la` to reveal hidden files (like `.project_x.txt`).
+
+### 2. Restricting "Others" Access
+* **Command:** `chmod o-w project_k.txt`
+* **Purpose:** Removed write (`w`) permission for others (`o`) from `project_k.txt` to prevent unauthorized modifications.
+
+### 3. Restricting "Group" Access
+* **Command:** `chmod g-r project_m.txt`
+* **Purpose:** Removed read (`r`) permission for the group (`g`) from `project_m.txt` to ensure confidentiality within the team.
+
+### 4. Securing Hidden Files
+* **Command:** `chmod u-w,g-w,g+r .project_x.txt`
+* **Purpose:** Modified permissions on the hidden file `.project_x.txt` to revoke write access from the owner and group, while ensuring the group has read access.
+
+### 5. Securing Directories
+* **Command:** `chmod g-x drafts`
+* **Purpose:** Removed execute (`x`) permission from the `drafts` directory for group members, preventing them from entering or traversing the directory.
+
+---
+
+## Skills Learned
+* **Linux CLI Navigation:** Efficient use of file listing flags (`-l`, `-a`).
+* **Access Control:** Implementing the principle of least privilege by stripping unnecessary permissions.
+* **Security Auditing:** Identifying over-permissive files and remediating them instantly.
+*<img width="1920" height="1483" alt="Linux File Permissions   Access Control Lab" src="https://github.com/user-attachments/assets/ccbe0f85-eb05-4fcb-93a4-89904c1044ab" />
