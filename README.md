@@ -382,13 +382,100 @@ In this security audit lab, I used **MariaDB (SQL)** to investigate and filter s
 
 ---
 
-## 💻 SQL Queries Executed & Analysis
+🔐 Querying Log-In Attempts Using SQL Filters
+A cybersecurity project demonstrating how to use SQL queries with filters to investigate suspicious login activity and support security audits.
 
-### 1. Filtering Logins after a Specific Date
-**Objective:** Identify all user login activities that occurred after May 9, 2022.
+📋 Project Overview
+This project showcases practical SQL skills applied to a real-world security scenario: analyzing a log_in_attempts table to identify unusual or potentially malicious login behavior.
+The queries use filtering techniques such as WHERE, AND, OR, NOT, BETWEEN, and comparison operators to extract meaningful insights from raw login data.
 
-```sql
-SELECT * FROM log_in_attempts 
+🗄️ Database Structure
+Table: log_in_attempts
+ColumnTypeDescriptionevent_idINTUnique identifier for each login eventusernameVARCHARThe user who attempted to log inlogin_dateDATEDate of the login attemptlogin_timeTIMETime of the login attemptcountryVARCHARCountry of origin (e.g. US, MEX, CAN)ip_addressVARCHARIP address of the login attemptsuccessBOOLEAN1 = successful login, 0 = failed
+
+🔍 Queries & Filters Applied
+1. Filter by date — after a specific date
+sqlSELECT * FROM log_in_attempts
 WHERE login_date > '2022-05-09';
 
-[Querying Log-In Attempts Using SQL Filters.pdf](https://github.com/user-attachments/files/28654496/Querying.Log-In.Attempts.Using.SQL.Filters.pdf)
+Returns all login attempts that occurred after May 9, 2022 (125 rows).
+
+
+2. Filter by date — on or after a date
+sqlSELECT * FROM log_in_attempts
+WHERE login_date >= '2022-05-09';
+
+Includes May 9 itself (165 rows).
+
+
+3. Filter by date range — BETWEEN
+sqlSELECT * FROM log_in_attempts
+WHERE login_date BETWEEN '2022-05-09' AND '2022-05-11';
+
+Returns logins across a 3-day window (123 rows).
+
+
+4. Filter by time — before 7:00 AM
+sqlSELECT * FROM log_in_attempts
+WHERE login_time < '07:00:00';
+
+Flags early-morning login attempts, which may indicate suspicious activity (67 rows).
+
+
+5. Filter by time range — between 6 AM and 7 AM
+sqlSELECT * FROM log_in_attempts
+WHERE login_time BETWEEN '06:00:00' AND '07:00:00';
+
+Narrows down to a specific hour window (15 rows).
+
+
+6. Filter by event ID — greater than or equal to 100
+sqlSELECT event_id, username, login_date
+FROM log_in_attempts
+WHERE event_id >= 100;
+
+Retrieves a subset of columns for events with IDs 100 and above (101 rows).
+
+
+7. Filter by event ID range — BETWEEN with column selection
+sqlSELECT event_id, username, login_date
+FROM log_in_attempts
+WHERE event_id BETWEEN 100 AND 150;
+
+Returns exactly 51 rows in the specified ID range.
+
+
+🛡️ Skills Demonstrated
+
+Writing SQL SELECT statements with targeted column selection
+Using WHERE clauses with comparison operators (>, >=, <, <=)
+Applying BETWEEN for range-based filtering on both dates and times
+Filtering login records to support security investigations
+Identifying off-hours access patterns as part of threat detection
+
+
+🧰 Tools Used
+
+MariaDB (MySQL-compatible)
+SQL command-line interface
+Database: organization
+
+
+📌 Use Case
+This type of analysis is commonly used by security analysts to:
+
+Detect brute-force attacks (many failed logins)
+Identify after-hours access by internal or external actors
+Support incident response investigations
+Generate audit logs for compliance reporting
+
+
+👤 Author
+
+Replace this section with your name and LinkedIn/portfolio link.
+
+
+📄 License
+This project is for educational purposes as part of a cybersecurity portfolio.
+
+[Querying Log-In Attempts Using SQL Filters.pdf](https://github.com/user-attachments/files/28654705/Querying.Log-In.Attempts.Using.SQL.Filters.pdf)
