@@ -354,6 +354,20 @@ In this security audit lab, I used **MariaDB (SQL)** to investigate and filter s
 
 ---
 
+# 🔍 Lab: Querying Log-In Attempts Using SQL Filters
+
+## 📌 Project Overview
+In this security audit lab, I used **MariaDB (SQL)** to investigate and filter system access logs from the `log_in_attempts` table. The goal was to isolate specific security events based on dynamic conditions like timestamps, specific date ranges, and hourly boundaries to identify potentially anomalous behavior.
+
+---
+
+## 🛠️ Skills Demonstrated
+*   **Database Management:** Querying structured data within MariaDB.
+*   **SQL Filtering & Logic:** Utilizing `WHERE`, `BETWEEN`, and relational operators (`>`, `<`).
+*   **Security Auditing:** Filtering system logs to analyze user login patterns and potential unauthorized access.
+
+---
+
 ## 💻 SQL Queries Executed & Analysis
 
 ### 1. Filtering Logins after a Specific Date
@@ -398,5 +412,4 @@ In this security audit lab, I used **MariaDB (SQL)** to investigate and filter s
 ## 🔑 Key Security Takeaways
 *   Filtering by `login_time` helps in baseline analysis to determine what "normal" working hours look like for users.
 *   Using targeted SQL filters reduces "alert fatigue" by allowing analysts to fetch only the data relevant to an incident.
-*[Querying Log-In Attempts Using SQL Filters.pdf](https://github.com/user-attachments/files/28654237/Querying.Log-In.Attempts.Using.SQL.Filters.pdf)
-
+*
