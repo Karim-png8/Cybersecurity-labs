@@ -340,3 +340,63 @@ When executing `useradd`, the tool returns specific exit codes depending on the 
 * **`10`**: Can't create home directory
 * **`12`**: Can't update SELinux user mapping
 *[System Administration & Commands Reference.pdf](https://github.com/user-attachments/files/28429589/System.Administration.Commands.Reference.pdf)
+# 🔍 Lab: Querying Log-In Attempts Using SQL Filters
+
+## 📌 Project Overview
+In this security audit lab, I used **MariaDB (SQL)** to investigate and filter system access logs from the `log_in_attempts` table. The goal was to isolate specific security events based on dynamic conditions like timestamps, specific date ranges, and hourly boundaries to identify potentially anomalous behavior.
+
+---
+
+## 🛠️ Skills Demonstrated
+*   **Database Management:** Querying structured data within MariaDB.
+*   **SQL Filtering & Logic:** Utilizing `WHERE`, `BETWEEN`, and relational operators (`>`, `<`).
+*   **Security Auditing:** Filtering system logs to analyze user login patterns and potential unauthorized access.
+
+---
+
+## 💻 SQL Queries Executed & Analysis
+
+### 1. Filtering Logins after a Specific Date
+**Objective:** Identify all user login activities that occurred after May 9, 2022.
+*   **Query:**
+```sql
+    SELECT * FROM log_in_attempts 
+    WHERE login_date > '2022-05-09';
+    ```
+*   **Result:** This query returned **125 rows**, showing active log-ins starting from `2022-05-10` across different countries (CAN, MEX, USA).
+
+### 2. Filtering Logins within a Specific Date Range
+**Objective:** Isolate login attempts that happened strictly between May 9, 2022, and May 11, 2022, to investigate a specific timeframe window.
+*   **Query:**
+```sql
+    SELECT * FROM log_in_attempts 
+    WHERE login_date BETWEEN '2022-05-09' AND '2022-05-11';
+    ```
+*   **Result:** Narrowed down the dataset to **123 rows**, capturing critical login attempts during the suspected audit period.
+
+### 3. Identifying Early Morning Login Patterns
+**Objective:** Investigate potentially suspicious logins occurring during off-hours (before 07:00:00 AM).
+*   **Query:**
+```sql
+    SELECT * FROM log_in_attempts 
+    WHERE login_time < '07:00:00';
+    ```
+*   **Result:** Filtered **67 rows** of users logging in during late-night or early-morning hours.
+
+### 4. Targeting the "Golden Hour" of Interest
+**Objective:** Pinpoint logins that happened exactly between 06:00:00 AM and 07:00:00 AM.
+*   **Query:**
+```sql
+    SELECT event_id, username, login_date 
+    FROM log_in_attempts 
+    WHERE login_time BETWEEN '06:00:00' AND '07:00:00';
+    ```
+*   **Result:** Found exactly **15 rows**, which helps security analysts monitor specific shifts or automated brute-force attempts.
+
+---
+
+## 🔑 Key Security Takeaways
+*   Filtering by `login_time` helps in baseline analysis to determine what "normal" working hours look like for users.
+*   Using targeted SQL filters reduces "alert fatigue" by allowing analysts to fetch only the data relevant to an incident.
+*[Querying Log-In Attempts Using SQL Filters.pdf](https://github.com/user-attachments/files/28654237/Querying.Log-In.Attempts.Using.SQL.Filters.pdf)
+
