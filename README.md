@@ -479,3 +479,34 @@ Replace this section with your name and LinkedIn/portfolio link.
 This project is for educational purposes as part of a cybersecurity portfolio.
 
 [Querying Log-In Attempts Using SQL Filters.pdf](https://github.com/user-attachments/files/28654705/Querying.Log-In.Attempts.Using.SQL.Filters.pdf)
+
+# Lab: Classic & Symmetric Decryption (Incident Response Scenario)
+
+## 📌 Project Overview
+In this lab, I simulated an incident response scenario where user data was encrypted by a malicious actor. The objective was to investigate the directory, locate hidden clues, decrypt a classic cipher (Caesar Cipher), and utilize the recovered cryptographic key to decrypt a file encrypted with symmetric encryption (AES-256).
+
+## 🛡️ Skills Demonstrated
+* **Linux Command Line Proficiency** (`cd`, `ls -a`, `cat`, pipes `|`)
+* **Cryptography Analysis** (Caesar Cipher, ROT/Shift decryption using `tr`)
+* **Symmetric Decryption** (Using OpenSSL with AES-256-CBC)
+* **Incident Response & Data Recovery**
+
+---
+
+## 💻 Step-by-Step Walkthrough
+
+### Step 1: Initial Investigation
+Upon inspecting the home directory, I found a `README.txt` stating that all data had been encrypted and directed me to a hidden file within the `caesar` subdirectory.
+
+```bash
+cat README.txt
+# Output: "All of your data has been encrypted. To recover your data, you will need to solve a cipher..."
+
+cd caesar
+ls -a
+cat .leftShift3
+cat .leftShift3 | tr "d-za-cd-ZA-C" "a-zA-Z"
+cd ~
+openssl aes-256-cbc -pbkdf2 -a -d -in Q1.encrypted -out Q1.recovered -k ettubrute
+cat Q1.recovered
+<img width="958" height="439" alt="Classic   Symmetric Decryption Incident Response Scenario" src="https://github.com/user-attachments/assets/a9c3d8aa-8fed-435f-8259-cf15f6039fa4" />
