@@ -493,20 +493,16 @@ In this lab, I simulated an incident response scenario where user data was encry
 
 ---
 
-## 💻 Step-by-Step Walkthrough
+### Step-by-Step Walkthrough
 
-### Step 1: Initial Investigation
-Upon inspecting the home directory, I found a `README.txt` stating that all data had been encrypted and directed me to a hidden file within the `caesar` subdirectory.
+| Step | Description | Commands Executed |
+| :---: | :--- | :--- |
+| **1** | **Initial Investigation:**<br>Inspected the home directory, found a `README.txt` file stating that all data had been encrypted, and learned that a hidden file exists inside the `caesar` subdirectory. | `cat README.txt` |
+| **2** | **Navigation & Hidden File Discovery:**<br>Navigated into the `caesar` directory and listed all contents, including hidden files, to reveal the `.leftShift3` file. | `cd caesar`<br>`ls -a` |
+| **3** | **Decryption Key Extraction:**<br>Read the obfuscated content of the hidden file `.leftShift3` and used character translation (`tr`) to shift it back, revealing the underlying instructions and the symmetric encryption key. | `cat .leftShift3`<br>`cat .leftShift3 \| tr "d-za-cd-ZA-C" "a-zA-Z"` |
+| **4** | **Symmetric File Decryption:**<br>Returned to the home directory and executed the OpenSSL command with the recovered key (`ettubrute`) using AES-256-CBC to fully restore the encrypted target file. | `cd ~`<br>`openssl aes-256-cbc -pbkdf2 -a -d -in Q1.encrypted -out Q1.recovered -k ettubrute` |
+| **5** | **Data Recovery Verification:**<br>Read the contents of the newly decrypted file `Q1.recovered` to successfully verify that the hidden message and data were fully restored. | `cat Q1.recovered` |
 
-```bash
-cat README.txt
-# Output: "All of your data has been encrypted. To recover your data, you will need to solve a cipher..."
+### Lab Proof & Verification
+<img width="958" height="439" alt="Classic   Symmetric Decryption Incident Response Scenario" src="https://github.com/user-attachments/assets/fbe13745-21db-47ae-b450-5234480d4f92" />
 
-cd caesar
-ls -a
-cat .leftShift3
-cat .leftShift3 | tr "d-za-cd-ZA-C" "a-zA-Z"
-cd ~
-openssl aes-256-cbc -pbkdf2 -a -d -in Q1.encrypted -out Q1.recovered -k ettubrute
-cat Q1.recovered
-<img width="958" height="439" alt="Classic   Symmetric Decryption Incident Response Scenario" src="https://github.com/user-attachments/assets/a9c3d8aa-8fed-435f-8259-cf15f6039fa4" />
